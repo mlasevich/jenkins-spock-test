@@ -6,14 +6,18 @@ import example.pkg.One
 public class CrashSpec extends Specification {
 
 	def "Demonstrate Crash With No Stack Trace" () {
-		when:
+		
+		given:
 		def object = new One()
-
-		then:
+		
+		when:
 		//try {
 			object.run(this, 0)
 		//} catch (Exception ex) {
 		//	ex.printStackTrace()
 		//}
+
+		then:
+		noExceptionThrown()
 	}
 }
